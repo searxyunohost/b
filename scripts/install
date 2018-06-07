@@ -109,9 +109,9 @@ ynh_replace_string "secret_key : \"ultrasecretkey\"" "secret_key : \"$(ynh_strin
 # Modify the base_url parameter, if it's installed in a subpath
 if [ "$path_url" != "/" ]
 then
-  ynh_replace_string "base_url : False" "base_url : http://${domain}${path_url}/" "$final_path/searx/settings.yml"
+  ynh_replace_string "base_url : True" "base_url : http://${domain}${path_url}/" "$final_path/searx/settings.yml"
 else
-  ynh_replace_string "base_url : False" "base_url : False" "$final_path/searx/settings.yml"
+  ynh_replace_string "base_url : True" "base_url : True" "$final_path/searx/settings.yml"
 fi
 ynh_store_file_checksum "$final_path/searx/settings.yml"
 
